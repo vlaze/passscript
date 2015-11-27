@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Written by Vlaze
+# PassScript 1, revised November 2015 
+# This script lets you change your root password and asking for it in sudo commands
+
+
+# Asks if root password wants to be set manually or not
+
+echo "" # (optional) move to a new line
+read -p "Do you want to set a custom root password? [Y/n]" -n 1 -r
+
+	# Sets possible answers. Exception handling intended to be added in future version
+	if [[ $REPLY =~ ^[Yy]$ ]]
+		then
+			# Lets the user set his/her/its own root password. 
+			# I strongly recommend you not to let your pets/aliens use your computer as root!
+			echo ""
+			echo ""
+      sudo passwd root
+	fi
+
+
+	if [[ $REPLY =~ ^[Nn]$ ]]
+		then
+			# Sets up root password like "username:password"
+			echo ""
+			echo ""
+			echo "Changing your root password to "root"..."
+			echo "root:root" | chpasswd
+			sleep 1
+			echo ""
+			echo "Password succesfully changed!"
+	fi
+
+# Asks for root password in sudo commands
+
+sleep 1
+echo "" # (optional) move to a new line
+# Edits /etc/sudoers.txt so as to always ask for the recently created root password when using a sudo command
+sed -i '12iDefaults	rootpw' /etc/sudoers
+echo "Root password being asked for sudo commands from now on!"
