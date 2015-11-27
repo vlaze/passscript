@@ -1,6 +1,6 @@
 # passscript
 
-My first script, no Hello Worlds for today.
+My very first script, no Hello Worlds.
 
 Last weekend my teacher installed a VNC server client (Epoptes) in my classroom computers. Feeling challenged, I wanted to try how 'strong' was the system, and after some minutes I managed to get rid of my teacher's control just by killing the process.
 
