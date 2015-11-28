@@ -3,7 +3,7 @@
 # Written by Vlaze
 # PassScript 1, revised November 2015 
 # This script lets you change your root password and asking for it in sudo commands
-
+VERSION="1"
 
 # Asks if root password wants to be set manually or not
 
